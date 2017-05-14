@@ -1,0 +1,36 @@
+diff -Naur linux-4.8.15-hardened-r1.orig/security/Kconfig linux-4.8.15-hardened-r1/security/Kconfig
+--- linux-4.8.15-hardened-r1.orig/security/Kconfig	2017-01-01 12:10:19.638828792 -0500
++++ linux-4.8.15-hardened-r1/security/Kconfig	2017-01-01 12:14:05.434836657 -0500
+@@ -293,7 +293,7 @@
+ 
+ config PAX_PT_PAX_FLAGS
+ 	bool 'Use ELF program header marking'
+-	default y if GRKERNSEC_CONFIG_AUTO
++	default n
+ 	help
+ 	  Enabling this option will allow you to control PaX features on
+ 	  a per executable basis via the 'paxctl' utility available at
+@@ -312,9 +312,12 @@
+ 	  If you enable none of the marking options then all applications
+ 	  will run with PaX enabled on them by default.
+ 
++	  Note for Gentoo: PT_PAX_FLAGS has been deprecated in Gentoo.  Enable
++	  this only for legacy systems.
++
+ config PAX_XATTR_PAX_FLAGS
+ 	bool 'Use filesystem extended attributes marking'
+-	default y if GRKERNSEC_CONFIG_AUTO
++	default y
+ 	select CIFS_XATTR if CIFS
+ 	select EXT2_FS_XATTR if EXT2_FS
+ 	select EXT3_FS_XATTR if EXT3_FS
+@@ -343,6 +346,9 @@
+ 	  If you enable none of the marking options then all applications
+ 	  will run with PaX enabled on them by default.
+ 
++	  Note for Gentoo: XATTR_PAX_FLAGS is now the default in Gentoo.  Do
++	  not disable this unless you know what you're doing.
++
+ choice
+ 	prompt 'MAC system integration'
+ 	default PAX_HAVE_ACL_FLAGS
