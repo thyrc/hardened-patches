@@ -6,7 +6,7 @@ Patch:	1027_linux-4.9.28.patch
 From:	http://www.kernel.org
 Desc:	Linux 4.9.28
 
-Patch:	4420_grsecurity-4.9.27.patch
+Patch:	4420_grsecurity-4.9.28.patch
 From:	http://www.grsecurity.net
 Desc:	hardened-sources base patch based on grsecurity upstream
 	grsecurity-3.1-4.9.24-201704220732.patch
